@@ -10,7 +10,7 @@ const Root = () => {
   return (
     <Router history={history}>
       <Switch>
-        <Route path={Routes.LOGIN} component={Login} />
+        <Route path={Routes.LOGIN} component={Login} exact />
         <Route path={Routes.CONVERTER} component={Converter} exact />
         <Route path={Routes.WEATHER} component={Weather} exact />
         <Route path={Routes.TASKS} component={Tasks} exact />

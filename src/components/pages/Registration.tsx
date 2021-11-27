@@ -1,11 +1,11 @@
 import BaseLayout from '../layout/BaseLayout';
 
-const Converter = () => {
+const Registration = () => {
   return (
     <BaseLayout>
-      <div>Conveter here</div>
+      <div>Registration page</div>
     </BaseLayout>
   );
 };
 
-export default Converter;
+export default Registration;

@@ -1,6 +1,7 @@
 export enum Routes {
-  LOGIN = "/login",
-  CONVERTER = "/converter",
-  WEATHER = "/weather",
-  TASKS = "/tasks",
+  LOGIN = 'login',
+  CONVERTER = 'converter',
+  WEATHER = 'weather',
+  TASKS = 'tasks',
+  REGISTRATION = 'registration',
 }

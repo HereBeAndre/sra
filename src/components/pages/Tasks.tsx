@@ -1,5 +1,11 @@
+import BaseLayout from '../layout/BaseLayout';
+
 const Tasks = () => {
-  return <div>Tasks page</div>;
+  return (
+    <BaseLayout>
+      <div>Tasks page</div>
+    </BaseLayout>
+  );
 };
 
 export default Tasks;

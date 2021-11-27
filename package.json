@@ -24,6 +24,7 @@
     "@typescript-eslint/parser": "4.31.1",
     "antd": "4.16.13",
     "babel-plugin-module-resolver": "4.1.0",
+    "customize-cra": "^1.0.0",
     "eslint-config-airbnb-typescript": "12.3.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.24.2",

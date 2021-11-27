@@ -1,0 +1,1 @@
+export const EURO_TO_DOLLAR_EXCHANGE_RATE = 1.1319586;

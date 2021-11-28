@@ -12,7 +12,7 @@ import BaseLayout from '../layout/BaseLayout';
 import CustomForm from '../shared/form/CustomForm';
 import CustomFormItem from '../shared/form/CustomFormItem';
 
-import { EStorageData } from '../../utils/constants';
+import { EStorageData, STANDARD_DATE_FORMAT } from '../../utils/constants';
 
 import i18n from '../../i18n';
 
@@ -28,7 +28,7 @@ const Task: React.FC = () => {
   const onFinish = (formValues: TTask) => {
     const taskObject = {
       ...formValues,
-      deadlineDate: formValues?.deadlineDate?.format('DD-MM-YYYY'),
+      deadlineDate: formValues?.deadlineDate?.format(STANDARD_DATE_FORMAT),
     };
 
     const prevTaskList = getTasksFromLocalStorage();
@@ -66,10 +66,10 @@ const Task: React.FC = () => {
         <Col span={10}>
           <Row justify="center">
             <CustomForm form={form} formName="task-form" onFormFinish={onFinish}>
-              <CustomFormItem label={i18n.TASK} name="title" required>
+              <CustomFormItem label={i18n.TASK} name="title">
                 <Input />
               </CustomFormItem>
-              <CustomFormItem label={i18n.DEADLINE_DATE} name="deadlineDate" required>
+              <CustomFormItem label={i18n.DEADLINE_DATE} name="deadlineDate">
                 <DatePicker disabledDate={disabledDate} format="DD-MM-YYYY" />
               </CustomFormItem>
               <Button type="primary" htmlType="submit">

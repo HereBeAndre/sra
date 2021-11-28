@@ -14,4 +14,7 @@ export default {
   CITY: 'City',
   CURRENT_WEATHER: 'Current Weather',
   ENTER_CITY: 'Enter a city',
+  TASK: 'Task',
+  CREATE: 'Create',
+  DEADLINE_DATE: 'Deadline Date',
 };

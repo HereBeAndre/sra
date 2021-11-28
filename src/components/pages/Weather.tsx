@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { Col, Row, Input, Button, Statistic, Card } from 'antd';
-import { BankOutlined, CloudOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import { Col, Row, Input, Button, Statistic, Card, Form } from 'antd';
+import { HomeOutlined, CloudOutlined, InfoCircleOutlined } from '@ant-design/icons';
 
 import BaseLayout from '../layout/BaseLayout';
 
@@ -24,7 +24,7 @@ const renderWeatherData = (data: IWeatherResponseData) => {
           <Statistic
             title={i18n.CITY}
             value={`${getValueFromData(data?.name)}, ${data?.sys?.country || ''}`}
-            prefix={<BankOutlined />}
+            prefix={<HomeOutlined />}
           />
           <Statistic
             title={i18n.CURRENT_WEATHER}
@@ -69,19 +69,22 @@ const renderWeatherData = (data: IWeatherResponseData) => {
 };
 
 const Weather: React.FC = () => {
+  const [form] = Form.useForm();
   const [response, setResponse] = useState({} as IWeatherResponseData);
 
+  // TODO: Ideally we'd need to setup either redux-saga or redux-thunk
   const onFinish = async ({ city }) => {
     const res: IWeatherResponseData = await fetchOpenWeatherMapApiData(city);
     setResponse(res || {});
+    form.resetFields();
   };
 
   return (
     <BaseLayout>
       <Row>
-        <Col span={8}>
+        <Col span={10}>
           <Row justify="center">
-            <CustomForm formName="weather-form" onFormFinish={onFinish}>
+            <CustomForm form={form} formName="weather-form" onFormFinish={onFinish}>
               <CustomFormItem label={i18n.ENTER_CITY} name="city" required>
                 <Input />
               </CustomFormItem>
@@ -91,7 +94,7 @@ const Weather: React.FC = () => {
             </CustomForm>
           </Row>
         </Col>
-        <Col span={8}>{renderWeatherData(response)}</Col>
+        <Col span={14}>{renderWeatherData(response)}</Col>
       </Row>
     </BaseLayout>
   );

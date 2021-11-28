@@ -1,8 +1,9 @@
 import { ReactNode } from 'react';
 
-import { ColProps, Form } from 'antd';
+import { ColProps, Form, FormInstance } from 'antd';
 
-interface CustomFormProps {
+interface ICustomFormProps {
+  form: FormInstance;
   formName: string;
   onFormFinish: (values) => void;
   children: ReactNode;
@@ -10,8 +11,13 @@ interface CustomFormProps {
   wrapperCol?: ColProps;
 }
 
-const CustomForm: React.FC<CustomFormProps> = ({ formName, onFormFinish, children, ...rest }) => {
-  const [form] = Form.useForm();
+const CustomForm: React.FC<ICustomFormProps> = ({
+  form,
+  formName,
+  onFormFinish,
+  children,
+  ...rest
+}) => {
   return (
     <Form form={form} name={formName} onFinish={onFormFinish} autoComplete="off" {...rest}>
       {children}

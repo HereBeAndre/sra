@@ -1,12 +1,12 @@
 import { CSSProperties } from 'react';
 
-interface LinkProps {
+interface ILinkProps {
   href: string;
   title: string;
   style?: CSSProperties;
 }
 
-const Link: React.FC<LinkProps> = ({ href, title, style }) => {
+const Link: React.FC<ILinkProps> = ({ href, title, style }) => {
   return (
     <a href={href} style={style}>
       {title}

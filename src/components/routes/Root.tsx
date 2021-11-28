@@ -3,7 +3,7 @@ import history from '../../history';
 import Converter from '../pages/Converter';
 import Login from '../pages/Login';
 import Registration from '../pages/Registration';
-import Tasks from '../pages/Tasks';
+import Tasks from '../pages/Task';
 import Weather from '../pages/Weather';
 import { Routes } from './urls';
 

@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
 
-import { ColProps, Form, FormInstance } from 'antd';
+import { Button, ColProps, Form, FormInstance, Row } from 'antd';
+
+import i18n from '../../../i18n';
 
 interface ICustomFormProps {
   form: FormInstance;
@@ -9,6 +11,7 @@ interface ICustomFormProps {
   children: ReactNode;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
+  submitButtonLabel?: string;
 }
 
 const CustomForm: React.FC<ICustomFormProps> = ({
@@ -16,11 +19,17 @@ const CustomForm: React.FC<ICustomFormProps> = ({
   formName,
   onFormFinish,
   children,
+  submitButtonLabel = i18n.SUBMIT,
   ...rest
 }) => {
   return (
     <Form form={form} name={formName} onFinish={onFormFinish} autoComplete="off" {...rest}>
       {children}
+      <Row justify="end">
+        <Button type="primary" htmlType="submit">
+          {submitButtonLabel}
+        </Button>
+      </Row>
     </Form>
   );
 };

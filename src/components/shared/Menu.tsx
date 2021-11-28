@@ -13,10 +13,8 @@ const CustomMenu: React.FC = () => {
 
   const onMenuClick = (evt) => setActiveMenuItem(evt.key);
 
-  const routes = Object.values(Routes).filter((route) => route !== Routes.LOGIN);
-
   const renderMenuItem = () => {
-    return routes.map((route) => {
+    return Object.values(Routes).map((route) => {
       return (
         <Menu.Item key={route}>
           <Link href={route} title={route.toUpperCase()} />

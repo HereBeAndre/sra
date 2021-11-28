@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Col, Row, Input, Button, Statistic, Card, Form } from 'antd';
+import { Col, Row, Input, Statistic, Card, Form } from 'antd';
 import { HomeOutlined, CloudOutlined, InfoCircleOutlined } from '@ant-design/icons';
 
 import BaseLayout from '../layout/BaseLayout';
@@ -88,9 +88,6 @@ const Weather: React.FC = () => {
               <CustomFormItem label={i18n.ENTER_CITY} name="city">
                 <Input />
               </CustomFormItem>
-              <Button type="primary" htmlType="submit">
-                {i18n.SUBMIT}
-              </Button>
             </CustomForm>
           </Row>
         </Col>

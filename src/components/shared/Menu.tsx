@@ -6,7 +6,9 @@ import Link from './Link';
 
 import { Routes } from '../routes/urls';
 
-const CustomMenu = () => {
+import { EStorageData } from '../../utils/constants';
+
+const CustomMenu: React.FC = () => {
   const [activeMenuItem, setActiveMenuItem] = useState<string>(Routes.CONVERTER);
 
   const onMenuClick = (evt) => setActiveMenuItem(evt.key);
@@ -25,11 +27,11 @@ const CustomMenu = () => {
 
   // use session storage to mimic Redux's behavior and avoid its setup
   useEffect(() => {
-    setActiveMenuItem(sessionStorage.getItem('navigationLink') || Routes.CONVERTER);
+    setActiveMenuItem(sessionStorage.getItem(EStorageData.NAVIGATION_LINK) || Routes.CONVERTER);
   }, []);
 
   useEffect(() => {
-    sessionStorage.setItem('navigationLink', activeMenuItem);
+    sessionStorage.setItem(EStorageData.NAVIGATION_LINK, activeMenuItem);
   }, [activeMenuItem]);
 
   return (

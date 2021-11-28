@@ -6,3 +6,8 @@ export enum EGetValueFromData {
   NOT_AVAILABLE = 'Not Available',
   EMPTY_STRING = '',
 }
+
+export enum EStorageData {
+  NAVIGATION_LINK = 'navigationLink',
+  TASK_LIST = 'taskList',
+}

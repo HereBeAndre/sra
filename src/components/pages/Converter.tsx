@@ -8,7 +8,7 @@ import { EURO_TO_DOLLAR_EXCHANGE_RATE } from '../../utils/constants';
 
 import i18n from '../../i18n';
 
-const Converter = () => {
+const Converter: React.FC = () => {
   const [amount, setAmount] = useState<number>(0);
   const [convertedAmount, setConvertedAmount] = useState<number>(amount);
 

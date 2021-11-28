@@ -1,6 +1,37 @@
-# Getting Started with Create React App
+# sra (Simple React App)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+
+- [sra (Simple React App)](#sra-simple-react-app)
+  - [Table of Contents](#table-of-contents)
+  - [General Information](#general-information)
+  - [Technologies Used](#technologies-used)
+  - [Install](#install)
+  - [Available Scripts](#available-scripts)
+    - [`npm start`](#npm-start)
+    - [`npm test`](#npm-test)
+    - [`npm run build`](#npm-run-build)
+    - [`npm run eject`](#npm-run-eject)
+  - [Features](#features)
+  - [Room for Improvement](#room-for-improvement)
+  - [License](#license)
+
+## General Information
+
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Technologies Used
+
+> - **node** - version 14.17.5 (https://nodejs.org/it/)
+> - **typescript** - version 4.4.3 (https://github.com/microsoft/TypeScript)
+> - **react** - version 17.0.2 (https://github.com/facebook/react)
+> - **react-router-dom** - version 5.2.0 (https://reactrouter.com/)
+> - **antd** - version 4.16.13 (https://ant.design/)
+
+## Install
+
+The complete list of dependencies is included in `./package-lock.json`.\
+Run `npm install` to install all dependencies.
 
 ## Available Scripts
 
@@ -39,8 +70,23 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> - App routing is handled by react-router;
+> - Weather data is provided by OpenWeather (https://openweathermap.org/)
+> - Ant Design as UI library.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Room for Improvement
+
+Todo:
+
+- [ ] Implement Login;
+- [ ] Implement unit tests;
+- [ ] Add style in entire application;
+- [ ] Add Redux as state manager library;
+- [ ] Add async handler library (redux-saga, redux-thunk, etc);
+- [ ] Install and configure `husky` (https://github.com/typicode/husky);
+
+## License
+
+This project is distributed under open source license.

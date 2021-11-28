@@ -2,7 +2,7 @@ import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import history from '../../history';
 import Converter from '../pages/Converter';
 import Login from '../pages/Login';
-import Registration from '../pages/Registration';
+import Registration from '../pages/registration/Registration';
 import Tasks from '../pages/Task';
 import Weather from '../pages/Weather';
 import { Routes } from './urls';

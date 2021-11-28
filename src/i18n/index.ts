@@ -17,4 +17,11 @@ export default {
   TASK: 'Task',
   CREATE: 'Create',
   DEADLINE_DATE: 'Deadline Date',
+  FIRSTNAME: 'First name',
+  LASTNAME: 'Last Name',
+  EMAIL: 'Email',
+  BIRTH_DATE: 'Birth Date',
+  ENTER_VALID_EMAIL_FORMAT: 'Please enter a valid email',
+  DONE: 'Done',
+  USER_DETAILS: 'User Details',
 };

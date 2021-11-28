@@ -85,7 +85,7 @@ const Weather: React.FC = () => {
         <Col span={10}>
           <Row justify="center">
             <CustomForm form={form} formName="weather-form" onFormFinish={onFinish}>
-              <CustomFormItem label={i18n.ENTER_CITY} name="city" required>
+              <CustomFormItem label={i18n.ENTER_CITY} name="city">
                 <Input />
               </CustomFormItem>
               <Button type="primary" htmlType="submit">

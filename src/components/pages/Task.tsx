@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { Form, Button, Col, Input, Row, List, Divider, DatePicker } from 'antd';
+import { Form, Col, Input, Row, List, Divider, DatePicker } from 'antd';
 import { PushpinOutlined } from '@ant-design/icons';
 
 import moment from 'moment';
@@ -65,16 +65,18 @@ const Task: React.FC = () => {
         </Col>
         <Col span={10}>
           <Row justify="center">
-            <CustomForm form={form} formName="task-form" onFormFinish={onFinish}>
+            <CustomForm
+              form={form}
+              formName="task-form"
+              onFormFinish={onFinish}
+              submitButtonLabel={i18n.CREATE}
+            >
               <CustomFormItem label={i18n.TASK} name="title">
                 <Input />
               </CustomFormItem>
               <CustomFormItem label={i18n.DEADLINE_DATE} name="deadlineDate">
                 <DatePicker disabledDate={disabledDate} format="DD-MM-YYYY" />
               </CustomFormItem>
-              <Button type="primary" htmlType="submit">
-                {i18n.CREATE}
-              </Button>
             </CustomForm>
           </Row>
         </Col>

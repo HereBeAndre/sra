@@ -1,24 +1,88 @@
-import { Col, Row, Input, Button } from 'antd';
-import i18n from '../../i18n';
+import { useState } from 'react';
+
+import { Col, Row, Input, Button, Statistic, Card } from 'antd';
+import { BankOutlined, CloudOutlined, InfoCircleOutlined } from '@ant-design/icons';
+
 import BaseLayout from '../layout/BaseLayout';
+
 import CustomForm from '../shared/form/CustomForm';
 import CustomFormItem from '../shared/form/CustomFormItem';
 
-const fetchApiData = () => {};
+import { fetchOpenWeatherMapApiData } from '../../api';
 
-const Weather = () => {
-  const onFinish = (value) => {
-    console.log(value);
-    fetchApiData();
+import { IWeatherResponseData } from '../../schemas/weather_d';
+
+import { formatData, getValueFromData } from '../../utils/function';
+
+import i18n from '../../i18n';
+
+const renderWeatherData = (data: IWeatherResponseData) => {
+  return Object.keys(data)?.length ? (
+    <div className="weather-data-card">
+      <Row>
+        <Col span={12}>
+          <Statistic
+            title={i18n.CITY}
+            value={`${getValueFromData(data?.name)}, ${data?.sys?.country || ''}`}
+            prefix={<BankOutlined />}
+          />
+          <Statistic
+            title={i18n.CURRENT_WEATHER}
+            value={getValueFromData(data?.weather?.[0]?.description)}
+            prefix={<CloudOutlined />}
+          />
+        </Col>
+        <Col span={12}>
+          <Card
+            size="small"
+            title={
+              <span>
+                <InfoCircleOutlined /> {i18n.WEATHER_DETAILS}
+              </span>
+            }
+          >
+            <p>
+              {i18n.CURRENT_TEMPERATURE}:{' '}
+              {formatData(getValueFromData(data?.main?.temp), i18n.CELSIUS_DEGREES)}
+            </p>
+            <p>
+              {i18n.APPARENT_TEMPERATURE}:{' '}
+              {formatData(getValueFromData(data?.main?.feels_like), i18n.CELSIUS_DEGREES)}
+            </p>
+            <p>
+              {i18n.MAX_TEMPERATURE}:{' '}
+              {formatData(getValueFromData(data?.main?.temp_max), i18n.CELSIUS_DEGREES)}
+            </p>
+            <p>
+              {i18n.MIN_TEMPERATURE}:{' '}
+              {formatData(getValueFromData(data?.main?.temp_min), i18n.CELSIUS_DEGREES)}
+            </p>
+            <p>
+              {i18n.HUMIDITY}:{' '}
+              {formatData(getValueFromData(data?.main?.humidity), i18n.PERCENTAGE_SIGN)}
+            </p>
+          </Card>
+        </Col>
+      </Row>
+    </div>
+  ) : null;
+};
+
+const Weather: React.FC = () => {
+  const [response, setResponse] = useState({} as IWeatherResponseData);
+
+  const onFinish = async ({ city }) => {
+    const res: IWeatherResponseData = await fetchOpenWeatherMapApiData(city);
+    setResponse(res || {});
   };
 
   return (
     <BaseLayout>
       <Row>
-        <Col span={12}>
+        <Col span={8}>
           <Row justify="center">
             <CustomForm formName="weather-form" onFormFinish={onFinish}>
-              <CustomFormItem label="Enter a city" name="city" required>
+              <CustomFormItem label={i18n.ENTER_CITY} name="city" required>
                 <Input />
               </CustomFormItem>
               <Button type="primary" htmlType="submit">
@@ -27,9 +91,7 @@ const Weather = () => {
             </CustomForm>
           </Row>
         </Col>
-        <Col span={12}>
-          <div style={{ background: 'gray' }}>right</div>
-        </Col>
+        <Col span={8}>{renderWeatherData(response)}</Col>
       </Row>
     </BaseLayout>
   );

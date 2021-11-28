@@ -11,8 +11,9 @@ interface CustomFormProps {
 }
 
 const CustomForm: React.FC<CustomFormProps> = ({ formName, onFormFinish, children, ...rest }) => {
+  const [form] = Form.useForm();
   return (
-    <Form name={formName} onFinish={onFormFinish} autoComplete="off" {...rest}>
+    <Form form={form} name={formName} onFinish={onFormFinish} autoComplete="off" {...rest}>
       {children}
     </Form>
   );

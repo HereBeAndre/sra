@@ -89,4 +89,4 @@ Todo:
 
 ## License
 
-This project is distributed under open source license.
+This project is licensed under the terms of the MIT license.
